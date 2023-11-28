@@ -8,7 +8,7 @@ st.set_page_config(page_title="Healthcare Appointment", page_icon="👩‍⚕️
 
 st.title("Healthcare Appointment Form")
 
-conn = st.connection("gsheets", type=GSheetsConnection)
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 existing_data = conn.read(worksheet="extracted_data", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
